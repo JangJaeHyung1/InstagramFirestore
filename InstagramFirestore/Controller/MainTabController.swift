@@ -12,9 +12,34 @@ class MainTabController: UITabBarController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViewControllers()
         
-        view.backgroundColor = .red
     }
     // MARK: - Helpers
+    
+    func configureViewControllers() {
+        view.backgroundColor = .white
+        
+        let feed = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "home_unselected"), seletedImage: #imageLiteral(resourceName: "home_selected"), rootViewController: FeedController())
+        
+        let search = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "search_unselected"), seletedImage: #imageLiteral(resourceName: "search_selected"), rootViewController: SearchController())
+        
+        let imageSelector = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "plus_unselected"), seletedImage: #imageLiteral(resourceName: "plus_unselected"), rootViewController: ImageSelectorController())
+        
+        let notifications = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"), seletedImage: #imageLiteral(resourceName: "like_selected"), rootViewController: NotificationsController())
+        
+        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), seletedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController())
+        
+        viewControllers = [feed, search, imageSelector, notifications, profile]
+        
+        tabBar.tintColor = .black
+    }
+    
+    func templateNavigationController(unselectedImage: UIImage, seletedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: rootViewController)
+        nav.tabBarItem.image = seletedImage
+        nav.navigationBar.tintColor = .black
+        return nav
+    }
 }
 

@@ -11,7 +11,7 @@
 		D14A5165263EBCAA00E7D441 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A5164263EBCAA00E7D441 /* FeedController.swift */; };
 		D14A5167263EBCC400E7D441 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A5166263EBCC400E7D441 /* SearchController.swift */; };
 		D14A5169263EBCE400E7D441 /* ImageSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A5168263EBCE400E7D441 /* ImageSelectorController.swift */; };
-		D14A516B263EBCF800E7D441 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A516A263EBCF800E7D441 /* NotificationController.swift */; };
+		D14A516B263EBCF800E7D441 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A516A263EBCF800E7D441 /* NotificationsController.swift */; };
 		D14A516D263EBD0A00E7D441 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A516C263EBD0A00E7D441 /* ProfileController.swift */; };
 		D16A3470263E850300F826FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A346F263E850300F826FD /* AppDelegate.swift */; };
 		D16A3472263E850300F826FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A3471263E850300F826FD /* SceneDelegate.swift */; };
@@ -26,7 +26,7 @@
 		D14A5164263EBCAA00E7D441 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		D14A5166263EBCC400E7D441 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D14A5168263EBCE400E7D441 /* ImageSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorController.swift; sourceTree = "<group>"; };
-		D14A516A263EBCF800E7D441 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		D14A516A263EBCF800E7D441 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		D14A516C263EBD0A00E7D441 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		D16A346C263E850300F826FD /* InstagramFirestore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirestore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16A346F263E850300F826FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				D14A5164263EBCAA00E7D441 /* FeedController.swift */,
 				D14A5166263EBCC400E7D441 /* SearchController.swift */,
 				D14A5168263EBCE400E7D441 /* ImageSelectorController.swift */,
-				D14A516A263EBCF800E7D441 /* NotificationController.swift */,
+				D14A516A263EBCF800E7D441 /* NotificationsController.swift */,
 				D14A516C263EBD0A00E7D441 /* ProfileController.swift */,
 			);
 			path = Controller;
@@ -205,7 +205,7 @@
 			files = (
 				D16A3474263E850300F826FD /* ViewController.swift in Sources */,
 				D14A5169263EBCE400E7D441 /* ImageSelectorController.swift in Sources */,
-				D14A516B263EBCF800E7D441 /* NotificationController.swift in Sources */,
+				D14A516B263EBCF800E7D441 /* NotificationsController.swift in Sources */,
 				D14A5167263EBCC400E7D441 /* SearchController.swift in Sources */,
 				D16A3470263E850300F826FD /* AppDelegate.swift in Sources */,
 				D14A516D263EBD0A00E7D441 /* ProfileController.swift in Sources */,
