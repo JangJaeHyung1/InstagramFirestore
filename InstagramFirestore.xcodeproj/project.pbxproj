@@ -24,6 +24,7 @@
 		D16E34FA26440B5500052965 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E34F926440B5500052965 /* LoginController.swift */; };
 		D16E34FC26440B6D00052965 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E34FB26440B6D00052965 /* RegistrationController.swift */; };
 		D16E34FE26480E2800052965 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E34FD26480E2800052965 /* CustomTextField.swift */; };
+		D16E350026484BAB00052965 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E34FF26484BAB00052965 /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		D16E34F926440B5500052965 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D16E34FB26440B6D00052965 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		D16E34FD26480E2800052965 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D16E34FF26484BAB00052965 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		D16A3489263E85D900F826FD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D16E34FF26484BAB00052965 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				D16E34FA26440B5500052965 /* LoginController.swift in Sources */,
 				D14A516F263F025B00E7D441 /* FeedCell.swift in Sources */,
 				D14A5169263EBCE400E7D441 /* ImageSelectorController.swift in Sources */,
+				D16E350026484BAB00052965 /* AuthViewModel.swift in Sources */,
 				D14A516B263EBCF800E7D441 /* NotificationsController.swift in Sources */,
 				D14A5167263EBCC400E7D441 /* SearchController.swift in Sources */,
 				D16A3470263E850300F826FD /* AppDelegate.swift in Sources */,
