@@ -12,6 +12,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -34,7 +35,7 @@ class RegistrationController: UIViewController {
         return tf
     }()
     
-    private let fullNameField = CustomTextField(placeholder: "이름")
+    private let fullNameTextField = CustomTextField(placeholder: "이름")
     
     private let userNameTextField = CustomTextField(placeholder: "계정 이름")
     
@@ -46,6 +47,8 @@ class RegistrationController: UIViewController {
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleSingUp), for: .touchUpInside)
+        button.isEnabled = false
         return button
     }()
     
@@ -76,7 +79,7 @@ class RegistrationController: UIViewController {
             viewModel.email = sender.text
         } else if sender == passwordTextField {
             viewModel.password = sender.text
-        } else if sender == fullNameField {
+        } else if sender == fullNameTextField {
             viewModel.fullName = sender.text
         } else {
             viewModel.userName = sender.text
@@ -93,6 +96,25 @@ class RegistrationController: UIViewController {
         present(picker, animated: true, completion: nil)
     }
     
+    @objc func handleSingUp(){
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
+        guard let userName = userNameTextField.text else { return }
+        guard let profileImage = self.profileImage else { return }
+        
+        let credentials = AuthCredentials(email: email, password: password, fullName: fullName, userName: userName, profileImage: profileImage)
+        
+        AuthService.registerUser(withCredentials: credentials) { error in
+            if let error = error {
+                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                return
+            }
+            
+            print("DEBUG: Success to register user on firestore")
+        }
+    }
+    
     // MARK: - Helpers
     
     func configureUI(){
@@ -103,7 +125,7 @@ class RegistrationController: UIViewController {
         plusPhotoButton.setDimensions(height: 140, width: 140)
         plusPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, fullNameField, userNameTextField, signUpButton])
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, fullNameTextField, userNameTextField, signUpButton])
         
         stack.axis = .vertical
         stack.spacing = 20
@@ -119,7 +141,7 @@ class RegistrationController: UIViewController {
     func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        fullNameField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
@@ -140,6 +162,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        profileImage = selectedImage
         
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
         plusPhotoButton.layer.masksToBounds = true
