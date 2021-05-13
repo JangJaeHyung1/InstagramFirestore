@@ -44,7 +44,8 @@ class MainTabController: UITabBarController {
         
         let notifications = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"), seletedImage: #imageLiteral(resourceName: "like_selected"), rootViewController: NotificationsController())
         
-        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), seletedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController())
+        let profileLayout = UICollectionViewFlowLayout()
+        let profile = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), seletedImage: #imageLiteral(resourceName: "profile_selected"), rootViewController: ProfileController(collectionViewLayout: profileLayout))
         
         viewControllers = [feed, search, imageSelector, notifications, profile]
         
