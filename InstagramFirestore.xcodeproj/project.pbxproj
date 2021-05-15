@@ -34,6 +34,7 @@
 		D16E350D264E5C1000052965 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E350C264E5C1000052965 /* UserService.swift */; };
 		D16E350F264E5C4E00052965 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E350E264E5C4E00052965 /* Constants.swift */; };
 		D16E3511264E66B100052965 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E3510264E66B100052965 /* User.swift */; };
+		D16E3513264E750700052965 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E3512264E750700052965 /* ProfileHeaderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		D16E350C264E5C1000052965 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D16E350E264E5C4E00052965 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D16E3510264E66B100052965 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D16E3512264E750700052965 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				D16E34FF26484BAB00052965 /* AuthViewModel.swift */,
+				D16E3512264E750700052965 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				D16A3470263E850300F826FD /* AppDelegate.swift in Sources */,
 				D16E3511264E66B100052965 /* User.swift in Sources */,
 				D14A516D263EBD0A00E7D441 /* ProfileController.swift in Sources */,
+				D16E3513264E750700052965 /* ProfileHeaderViewModel.swift in Sources */,
 				D16E350F264E5C4E00052965 /* Constants.swift in Sources */,
 				D16E34FC26440B6D00052965 /* RegistrationController.swift in Sources */,
 				D14A5165263EBCAA00E7D441 /* FeedController.swift in Sources */,
