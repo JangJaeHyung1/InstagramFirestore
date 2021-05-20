@@ -20,10 +20,10 @@ struct ProfileHeaderViewModel {
             
     var followButtonText: String {
         if user.isCurrentUser {
-            return "Edit Profile"
+            return "프로필 수정"
         }
         
-        return user.isFollowed ? "Following" : "Follow"
+        return user.isFollowed ? "팔로잉 중" : "팔로우 하기"
     }
     
     var followButtonBackgroundColor: UIColor {
