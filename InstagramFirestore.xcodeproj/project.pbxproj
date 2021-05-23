@@ -17,6 +17,8 @@
 		D14A516F263F025B00E7D441 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A516E263F025B00E7D441 /* FeedCell.swift */; };
 		D14A5171263F038F00E7D441 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A5170263F038F00E7D441 /* Extensions.swift */; };
 		D160BE642654CF3300D0F184 /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160BE632654CF3300D0F184 /* UserCellViewModel.swift */; };
+		D160BE66265A3F6400D0F184 /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160BE65265A3F6400D0F184 /* UploadPostController.swift */; };
+		D160BE68265A61BF00D0F184 /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D160BE67265A61BF00D0F184 /* InputTextView.swift */; };
 		D16A3470263E850300F826FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A346F263E850300F826FD /* AppDelegate.swift */; };
 		D16A3472263E850300F826FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A3471263E850300F826FD /* SceneDelegate.swift */; };
 		D16A3474263E850300F826FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A3473263E850300F826FD /* ViewController.swift */; };
@@ -52,6 +54,8 @@
 		D14A516E263F025B00E7D441 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D14A5170263F038F00E7D441 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D160BE632654CF3300D0F184 /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
+		D160BE65265A3F6400D0F184 /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
+		D160BE67265A61BF00D0F184 /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		D16A346C263E850300F826FD /* InstagramFirestore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFirestore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16A346F263E850300F826FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16A3471263E850300F826FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 			children = (
 				D14A5170263F038F00E7D441 /* Extensions.swift */,
 				D16E350E264E5C4E00052965 /* Constants.swift */,
+				D160BE67265A61BF00D0F184 /* InputTextView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				D14A5168263EBCE400E7D441 /* ImageSelectorController.swift */,
 				D14A516A263EBCF800E7D441 /* NotificationsController.swift */,
 				D14A516C263EBD0A00E7D441 /* ProfileController.swift */,
+				D160BE65265A3F6400D0F184 /* UploadPostController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 			files = (
 				D16E34FE26480E2800052965 /* CustomTextField.swift in Sources */,
 				D16E350A264CFA8E00052965 /* ProfileHeader.swift in Sources */,
+				D160BE66265A3F6400D0F184 /* UploadPostController.swift in Sources */,
 				D16A3474263E850300F826FD /* ViewController.swift in Sources */,
 				D16E34FA26440B5500052965 /* LoginController.swift in Sources */,
 				D14A516F263F025B00E7D441 /* FeedCell.swift in Sources */,
@@ -353,6 +360,7 @@
 				D16E3511264E66B100052965 /* User.swift in Sources */,
 				D14A516D263EBD0A00E7D441 /* ProfileController.swift in Sources */,
 				D16E3513264E750700052965 /* ProfileHeaderViewModel.swift in Sources */,
+				D160BE68265A61BF00D0F184 /* InputTextView.swift in Sources */,
 				D16E350F264E5C4E00052965 /* Constants.swift in Sources */,
 				D16E34FC26440B6D00052965 /* RegistrationController.swift in Sources */,
 				D160BE642654CF3300D0F184 /* UserCellViewModel.swift in Sources */,
