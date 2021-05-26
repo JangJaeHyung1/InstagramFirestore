@@ -25,6 +25,12 @@ class FeedController: UICollectionViewController {
     
     // MARK: - Actions
     
+    @objc func handleRefresh() {
+        posts.removeAll()
+        collectionView.refreshControl?.endRefreshing()
+        fetchPosts()
+    }
+    
     @objc func handleLogout(){
         do {
             try Auth.auth().signOut()
@@ -56,6 +62,10 @@ class FeedController: UICollectionViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "로그아웃", style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.title = "피드"
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
 }
 
