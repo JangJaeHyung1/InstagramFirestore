@@ -27,7 +27,6 @@ class FeedController: UICollectionViewController {
     
     @objc func handleRefresh() {
         posts.removeAll()
-        collectionView.refreshControl?.endRefreshing()
         fetchPosts()
     }
     
@@ -49,6 +48,7 @@ class FeedController: UICollectionViewController {
     func fetchPosts() {
         PostService.fetchPost { posts in
             self.posts = posts
+            self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()
         }
     }
