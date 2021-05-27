@@ -80,18 +80,20 @@ class FeedController: UICollectionViewController {
 // MARK: - UICollectionViewDataSource
 
 extension FeedController {
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return post != nil ? 1 : posts.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FeedCell
         
+        cell.delegate = self
+        
         if let post = post {
-                    cell.viewModel = PostViewModel(post: post)
-                } else {
-                    cell.viewModel = PostViewModel(post: posts[indexPath.row])
-                }
+            cell.viewModel = PostViewModel(post: post)
+        } else {
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+        }
         
         return cell
     }
@@ -108,5 +110,13 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
         height += 60
         
         return CGSize(width: width, height: height)
+    }
+}
+
+// MARK: - FeedCellDelegate
+extension FeedController: FeedCellDelegate {
+    func cell(_ cell: FeedCell, showCommentsFor post: Post) {
+        let controller = CommentController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
