@@ -46,7 +46,7 @@ class FeedController: UICollectionViewController {
     // MARK: - API
     
     func fetchPosts() {
-        PostService.fetchPost { posts in
+        PostService.fetchPosts { posts in
             self.posts = posts
             self.collectionView.refreshControl?.endRefreshing()
             self.collectionView.reloadData()

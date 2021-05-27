@@ -43,7 +43,7 @@ struct ProfileHeaderViewModel {
     }
     
     var numberOfPosts: NSAttributedString {
-        return attributedStatText(value: 5, label: "게시글")
+        return attributedStatText(value: user.stats.posts, label: "게시글")
     }
     
     init(user: User) {
