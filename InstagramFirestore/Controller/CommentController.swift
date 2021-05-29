@@ -13,12 +13,36 @@ class CommentController: UICollectionViewController {
     
     // MARK: - Properties
     
+    private lazy var commentInputView: CommentInputAccesoryView = {
+        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+        let cv = CommentInputAccesoryView(frame: frame)
+        return cv
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollectionView()
+    }
+    
+    override var inputAccessoryView: UIView? {
+        get { return commentInputView }
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Helpers
@@ -40,7 +64,7 @@ extension CommentController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .red
+        
         return cell
     }
 }

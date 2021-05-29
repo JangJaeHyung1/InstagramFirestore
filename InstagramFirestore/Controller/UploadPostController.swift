@@ -36,6 +36,7 @@ class UploadPostController: UIViewController {
         tv.placeholderText = "할말을 적어주세용.."
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.delegate = self
+        tv.placeholderShouldCenter = false
         return tv
     }()
     

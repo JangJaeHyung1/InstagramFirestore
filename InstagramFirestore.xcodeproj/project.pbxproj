@@ -44,6 +44,7 @@
 		D16E3515265193D500052965 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E3514265193D500052965 /* UserCell.swift */; };
 		D1F240F0265FE78F00CAB791 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240EF265FE78F00CAB791 /* CommentController.swift */; };
 		D1F240F22660160A00CAB791 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F12660160A00CAB791 /* CommentCell.swift */; };
+		D1F240F42662607400CAB791 /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		D16E3514265193D500052965 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		D1F240EF265FE78F00CAB791 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		D1F240F12660160A00CAB791 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 				D16E34FD26480E2800052965 /* CustomTextField.swift */,
 				D16E3514265193D500052965 /* UserCell.swift */,
 				D1F240F12660160A00CAB791 /* CommentCell.swift */,
+				D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				D16E3504264A79F600052965 /* ImageUploader.swift in Sources */,
 				D160BE6C265D080000D0F184 /* Post.swift in Sources */,
 				D16E3506264A7A0400052965 /* AuthService.swift in Sources */,
+				D1F240F42662607400CAB791 /* CommentInputAccesoryView.swift in Sources */,
 				D160BE6A265A7A3100D0F184 /* PostService.swift in Sources */,
 				D16E350D264E5C1000052965 /* UserService.swift in Sources */,
 				D16E3508264CF9EC00052965 /* ProfileCell.swift in Sources */,
