@@ -16,6 +16,7 @@ class CommentController: UICollectionViewController {
     private lazy var commentInputView: CommentInputAccesoryView = {
         let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
         let cv = CommentInputAccesoryView(frame: frame)
+        cv.delegate = self
         return cv
     }()
     
@@ -37,7 +38,7 @@ class CommentController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,6 +53,8 @@ class CommentController: UICollectionViewController {
         
         collectionView.backgroundColor = .white
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .interactive
     }
 }
 
@@ -59,7 +62,7 @@ class CommentController: UICollectionViewController {
 
 extension CommentController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -77,4 +80,13 @@ extension CommentController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: view.frame.width, height: 80)
     }
+}
+
+// MARK: - CommentInputAccesoryViewDelegate
+
+extension CommentController: CommentInputAccesoryViewDelegate {
+    func inputView(_ inputView: CommentInputAccesoryView, wantToUplaodComment comment: String) {
+        inputView.clearCommentTextView()
+    }
+    
 }
