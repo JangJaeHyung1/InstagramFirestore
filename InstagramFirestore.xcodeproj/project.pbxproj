@@ -46,6 +46,7 @@
 		D1F240F22660160A00CAB791 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F12660160A00CAB791 /* CommentCell.swift */; };
 		D1F240F42662607400CAB791 /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */; };
 		D1F240F6266531C400CAB791 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F5266531C400CAB791 /* CommentService.swift */; };
+		D1F240F8266645E100CAB791 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F7266645E100CAB791 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		D1F240F12660160A00CAB791 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
 		D1F240F5266531C400CAB791 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		D1F240F7266645E100CAB791 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			children = (
 				D16E3510264E66B100052965 /* User.swift */,
 				D160BE6B265D080000D0F184 /* Post.swift */,
+				D1F240F7266645E100CAB791 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				D14A516F263F025B00E7D441 /* FeedCell.swift in Sources */,
 				D14A5169263EBCE400E7D441 /* ImageSelectorController.swift in Sources */,
 				D1F240F6266531C400CAB791 /* CommentService.swift in Sources */,
+				D1F240F8266645E100CAB791 /* Comment.swift in Sources */,
 				D16E350026484BAB00052965 /* AuthViewModel.swift in Sources */,
 				D14A516B263EBCF800E7D441 /* NotificationsController.swift in Sources */,
 				D16E3515265193D500052965 /* UserCell.swift in Sources */,
