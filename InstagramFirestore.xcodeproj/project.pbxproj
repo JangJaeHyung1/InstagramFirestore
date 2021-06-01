@@ -47,6 +47,7 @@
 		D1F240F42662607400CAB791 /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */; };
 		D1F240F6266531C400CAB791 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F5266531C400CAB791 /* CommentService.swift */; };
 		D1F240F8266645E100CAB791 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F7266645E100CAB791 /* Comment.swift */; };
+		D1F240FA26665F7800CAB791 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F240F926665F7800CAB791 /* CommentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
 		D1F240F5266531C400CAB791 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 		D1F240F7266645E100CAB791 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		D1F240F926665F7800CAB791 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				D16E3514265193D500052965 /* UserCell.swift */,
 				D1F240F12660160A00CAB791 /* CommentCell.swift */,
 				D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */,
+				D1F240F926665F7800CAB791 /* CommentViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F240FA26665F7800CAB791 /* CommentViewModel.swift in Sources */,
 				D160BE6E265D7C8C00D0F184 /* PostViewModel.swift in Sources */,
 				D16E34FE26480E2800052965 /* CustomTextField.swift in Sources */,
 				D16E350A264CFA8E00052965 /* ProfileHeader.swift in Sources */,
