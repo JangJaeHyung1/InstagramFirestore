@@ -64,8 +64,8 @@ class CommentController: UICollectionViewController {
     func fetchComments() {
         CommentService.fetchComments(forPost: post.postId) { comments in
             self.comments = comments
-            print("DEBUG: postID \(self.post.postId)")
-            print("DEBUG: fetch comment \(comments)")
+//            print("DEBUG: postID \(self.post.postId)")
+//            print("DEBUG: fetch comment \(comments)")
             self.collectionView.reloadData()
         }
     }
@@ -94,6 +94,18 @@ extension CommentController {
         cell.viewModel = CommentViewModel(comment: comments[indexPath.row])
         
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension CommentController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let uid = comments[indexPath.row].uid
+        UserService.fetchUser(withUid: uid) { user in
+            let controller = ProfileController(user: user)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 
