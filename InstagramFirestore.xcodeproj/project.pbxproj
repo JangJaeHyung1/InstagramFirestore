@@ -202,6 +202,7 @@
 				D16E3512264E750700052965 /* ProfileHeaderViewModel.swift */,
 				D160BE632654CF3300D0F184 /* UserCellViewModel.swift */,
 				D160BE6D265D7C8C00D0F184 /* PostViewModel.swift */,
+				D1F240F926665F7800CAB791 /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -215,7 +216,6 @@
 				D16E3514265193D500052965 /* UserCell.swift */,
 				D1F240F12660160A00CAB791 /* CommentCell.swift */,
 				D1F240F32662607400CAB791 /* CommentInputAccesoryView.swift */,
-				D1F240F926665F7800CAB791 /* CommentViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

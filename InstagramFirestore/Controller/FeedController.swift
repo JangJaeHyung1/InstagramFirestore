@@ -14,7 +14,9 @@ class FeedController: UICollectionViewController {
     
     // MARK: - Lifecycle
     
-    private var posts = [Post]()
+    private var posts = [Post]() {
+        didSet { collectionView.reloadData() }
+    }
     
     var post: Post?
     
@@ -53,8 +55,20 @@ class FeedController: UICollectionViewController {
         }
         PostService.fetchPosts { posts in
             self.posts = posts
+            self.checkIfUserLikedPost()
             self.collectionView.refreshControl?.endRefreshing()
-            self.collectionView.reloadData()
+//            self.collectionView.reloadData()
+        }
+    }
+    
+    func checkIfUserLikedPost() {
+        self.posts.forEach { post in
+            PostService.checkIfUserLikePost(post: post) { didLike in
+//                print("DEBUG: \(post.caption) post did liked : \(didLike)")
+                if let index = self.posts.firstIndex(where: { $0.postId == post.postId }) {
+                    self.posts[index].didLike = didLike
+                }
+            }
         }
     }
     
@@ -124,9 +138,21 @@ extension FeedController: FeedCellDelegate {
 //        post.didLike.toggle()
         cell.viewModel?.post.didLike.toggle()
         if post.didLike {
-            print("DEBUG: Unlike post")
+//            print("DEBUG: Unlike post")
+            PostService.unlikePost(post: post) { _ in
+//                print("DEBUG: Unlike complete")
+                cell.likeButton.setImage(#imageLiteral(resourceName: "like_unselected"), for: .normal)
+                cell.likeButton.tintColor = .black
+                cell.viewModel?.post.likes = post.likes - 1
+            }
         } else {
-            print("DEBUG: Like post")
+//            print("DEBUG: Like post")
+            PostService.likePost(post: post) { error in
+//                print("DEBUG: Like complete")
+                cell.likeButton.setImage(#imageLiteral(resourceName: "like_selected"), for: .normal)
+                cell.likeButton.tintColor = .red
+                cell.viewModel?.post.likes = post.likes + 1
+            }
         }
     }
 }
