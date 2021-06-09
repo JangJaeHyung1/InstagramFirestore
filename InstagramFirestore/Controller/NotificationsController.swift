@@ -30,7 +30,19 @@ class NotificationsController: UITableViewController {
     func fetchNotifications() {
         NotificationService.fetchNotification { noti in
             self.notifications = noti
-            print("DEBUG: Noti \(noti)")
+//            print("DEBUG: Noti \(noti)")
+            self.checkIfUserIsFollowed()
+        }
+    }
+    
+    func checkIfUserIsFollowed() {
+        notifications.forEach { noti in
+            guard noti.type == .follow else { return }
+            UserService.checkIfUserIsFollowed(uid: noti.uid) { isFollowed in
+                if let index = self.notifications.firstIndex(where: { $0.id == noti.id }){
+                    self.notifications[index].userIsFollowed = isFollowed
+                }
+            }
         }
     }
     
@@ -46,6 +58,8 @@ class NotificationsController: UITableViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension NotificationsController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifications.count
@@ -53,6 +67,31 @@ extension NotificationsController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NotificationCell
         cell.viewModel = NotificationViewModel(notification: notifications[indexPath.row])
+        cell.delegate = self
         return cell
     }
+}
+
+// MARK: - UITableViewDelegate
+
+extension NotificationsController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension NotificationsController: NotificationCellDelegate {
+    func cell(_ cell: NotificationCell, wantsToFollow uid: String) {
+        print("DEBUG: follow user")
+    }
+    
+    func cell(_ cell: NotificationCell, wantsToUnfollow uid: String) {
+        print("DEBUG: unfollow user")
+    }
+    
+    func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {
+        print("DEBUG: show post")
+    }
+    
+    
 }
