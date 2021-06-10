@@ -76,21 +76,39 @@ extension NotificationsController {
 
 extension NotificationsController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let uid = notifications[indexPath.row].uid
         
+        UserService.fetchUser(withUid: uid) { user in
+            let controller = ProfileController(user: user)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 
+// MARK: - NotificationCellDelegate
+
 extension NotificationsController: NotificationCellDelegate {
     func cell(_ cell: NotificationCell, wantsToFollow uid: String) {
-        print("DEBUG: follow user")
+//        print("DEBUG: follow user")
+        UserService.follow(uid: uid) { _ in
+            cell.viewModel?.notification.userIsFollowed.toggle()
+        }
     }
     
     func cell(_ cell: NotificationCell, wantsToUnfollow uid: String) {
-        print("DEBUG: unfollow user")
+//        print("DEBUG: unfollow user")
+        UserService.unfollow(uid: uid) { _ in
+            cell.viewModel?.notification.userIsFollowed.toggle()
+        }
     }
     
     func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {
-        print("DEBUG: show post")
+//        print("DEBUG: show post")
+        PostService.fetchPost(withPostId: postId) { post in
+            let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+            controller.post = post
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     

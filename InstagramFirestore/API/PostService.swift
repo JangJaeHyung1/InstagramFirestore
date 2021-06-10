@@ -26,6 +26,7 @@ struct PostService {
         
     }
     
+    // 모든 포스트를 피드에 뿌리기 위한 fetch
     static func fetchPosts(completion: @escaping([Post]) -> Void) {
         COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, error in
             guard let docs = snapshot?.documents else { return }
@@ -35,6 +36,7 @@ struct PostService {
         }
     }
     
+    // currentUser의 posts로 profileView에 3*N으로 뿌려질 게시글들
     static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
         let query = COLLECTION_POSTS
             .whereField("ownerUid", isEqualTo: uid)
@@ -50,6 +52,16 @@ struct PostService {
             }
             
             completion(posts)
+        }
+    }
+    
+    // notiView에서 게시글을 눌렀을때 하나의 게시글만 fetch
+    static func fetchPost(withPostId postId: String, completion: @escaping(Post) -> Void) {
+        COLLECTION_POSTS.document(postId).getDocument { snapshot, _ in
+            guard let snapshot = snapshot else { return }
+            guard let data = snapshot.data() else { return }
+            let post = Post(postId: snapshot.documentID, dictionary: data)
+            completion(post)
         }
     }
     
