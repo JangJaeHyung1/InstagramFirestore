@@ -94,4 +94,33 @@ struct PostService {
             completion(didLike)
         }
     }
+    
+    static func fetchFeedPosts(completion: @escaping([Post]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        var posts = [Post]()
+        
+        COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, error in
+            snapshot?.documents.forEach({ doc in
+                fetchPost(withPostId: doc.documentID) { post in
+                    posts.append(post)
+                    completion(posts)
+                }
+            })
+        }
+    }
+    
+    static func updateUserFeedAfterFollowing(user: User) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
+        query.getDocuments { snapshot, error in
+            guard let docs = snapshot?.documents else { return }
+            
+            let docIDs = docs.map({ $0.documentID })
+//            print("DEBUG: docs ids \(docIDs)")
+            
+            docIDs.forEach { id in
+                COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
+            }
+        }
+    }
 }
