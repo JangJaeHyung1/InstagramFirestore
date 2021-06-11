@@ -27,7 +27,7 @@ class LoginController: UIViewController {
     private let emailTextField: CustomTextField = {
         let tf = CustomTextField(placeholder: "이메일")
         tf.keyboardType = .emailAddress
- 
+        tf.autocapitalizationType = .none
         return tf
     }()
     
@@ -53,6 +53,7 @@ class LoginController: UIViewController {
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "비밀번호를 잊어버리셨습니까?", secondPart: "")
+        button.addTarget(self, action: #selector(handleShowResetPassword), for: .touchUpInside)
         return button
     }()
     
@@ -102,6 +103,11 @@ class LoginController: UIViewController {
             viewModel.password = sender.text
         }
         updateForm()
+    }
+    
+    @objc func handleShowResetPassword() {
+        let controller = ResetPasswordController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK: - Helpers

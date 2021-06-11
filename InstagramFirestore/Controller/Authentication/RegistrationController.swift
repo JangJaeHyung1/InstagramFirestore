@@ -26,7 +26,7 @@ class RegistrationController: UIViewController {
     private let emailTextField: CustomTextField = {
         let tf = CustomTextField(placeholder: "이메일")
         tf.keyboardType = .emailAddress
- 
+        tf.autocapitalizationType = .none
         return tf
     }()
     
@@ -36,9 +36,17 @@ class RegistrationController: UIViewController {
         return tf
     }()
     
-    private let fullNameTextField = CustomTextField(placeholder: "이름")
+    private let fullNameTextField: CustomTextField = {
+        let tf = CustomTextField(placeholder: "이름")
+        tf.autocapitalizationType = .none
+        return tf
+    }()
     
-    private let userNameTextField = CustomTextField(placeholder: "계정 이름")
+    private let userNameTextField: CustomTextField = {
+        let tf = CustomTextField(placeholder: "계정 이름")
+        tf.autocapitalizationType = .none
+        return tf
+    }()
     
     private let signUpButton: UIButton = {
         let button = UIButton(type: .system)
