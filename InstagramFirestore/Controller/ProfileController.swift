@@ -143,6 +143,8 @@ extension ProfileController: ProfileHeaderDelegate {
 //                print("DEBUG: did unfollow user.")
                 self.user.isFollowed = false
                 self.collectionView.reloadData()
+                
+                PostService.updateUserFeedAfterFollowing(user: user, didFollow: false)
             }
         } else {
 //            print("DEBUG: follow button")
@@ -153,7 +155,7 @@ extension ProfileController: ProfileHeaderDelegate {
                 
                 NotificationService.uploadNotification(toUid: user.uid, fromUser: currentUser, type: .follow)
                 
-                PostService.updateUserFeedAfterFollowing(user: user)
+                PostService.updateUserFeedAfterFollowing(user: user, didFollow: true)
             }
         }
     }
