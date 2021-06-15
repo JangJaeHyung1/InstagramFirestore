@@ -18,13 +18,21 @@ struct NotificationViewModel {
     
     var profileImageUrl: URL? { return URL(string: notification.userProfileImageUrl)}
     
+    var timestampString: String? {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: notification.timestamp.dateValue(), to: Date()) ?? "2m"
+    }
+    
     var notificationMessage: NSAttributedString {
         let userName = notification.userName
         let message = notification.type.notificationMessage
         
         let attributedText = NSMutableAttributedString(string: userName, attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: message, attributes: [.font: UIFont.boldSystemFont(ofSize: 14)]))
-        attributedText.append(NSAttributedString(string: " 2분전", attributes: [.font: UIFont.boldSystemFont(ofSize: 12), .foregroundColor: UIColor.lightGray]))
+        attributedText.append(NSAttributedString(string: " \(timestampString ?? "")", attributes: [.font: UIFont.boldSystemFont(ofSize: 12), .foregroundColor: UIColor.lightGray]))
         
         return attributedText
     }

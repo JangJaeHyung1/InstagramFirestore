@@ -40,8 +40,7 @@ struct PostService {
     
     // currentUser의 posts로 profileView에 3*N으로 뿌려질 게시글들
     static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
-        let query = COLLECTION_POSTS
-            .whereField("ownerUid", isEqualTo: uid)
+        let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
 //            .order(by: "timestamp", descending: true)
         
         query.getDocuments { snapshot, error in
@@ -49,9 +48,10 @@ struct PostService {
             
             var posts = docs.map({ Post(postId: $0.documentID, dictionary: $0.data())})
 
-            posts.sort { post1, post2 in
-                return post1.timestamp.seconds > post2.timestamp.seconds
-            }
+            posts.sort(by: { $0.timestamp.seconds > $1.timestamp.seconds })
+//            posts.sort { post1, post2 in
+//                return post1.timestamp.seconds > post2.timestamp.seconds
+//            }
             
             completion(posts)
         }
@@ -105,6 +105,12 @@ struct PostService {
             snapshot?.documents.forEach({ doc in
                 fetchPost(withPostId: doc.documentID) { post in
                     posts.append(post)
+                    
+                    posts.sort(by: { $0.timestamp.seconds > $1.timestamp.seconds })
+//                    posts.sort { post1, post2 in
+//                        return post1.timestamp.seconds > post2.timestamp.seconds
+//                    }
+                    
                     completion(posts)
                 }
             })
