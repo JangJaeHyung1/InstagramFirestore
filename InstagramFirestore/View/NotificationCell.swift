@@ -81,9 +81,9 @@ class NotificationCell: UITableViewCell {
         profileImageView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
         
         
-        contentView.addSubview(followButton)
-        followButton.centerY(inView: self)
-        followButton.anchor(right: rightAnchor, paddingRight: 12, width: 88, height: 32)
+//        contentView.addSubview(followButton)
+//        followButton.centerY(inView: self)
+//        followButton.anchor(right: rightAnchor, paddingRight: 12, width: 88, height: 32)
         
         contentView.addSubview(postImageView)
         postImageView.centerY(inView: self)
@@ -91,7 +91,7 @@ class NotificationCell: UITableViewCell {
         
         contentView.addSubview(infoLabel)
         infoLabel.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
-        infoLabel.anchor(right: followButton.leftAnchor, paddingRight: 4)
+        infoLabel.anchor(left: profileImageView.rightAnchor, paddingLeft: 4, paddingRight: 12)
         
 //        followButton.isHidden = true
     }
